@@ -6,10 +6,6 @@ from random import shuffle
 from random import choices
 import string
 import time
-from numpy import array, average
-import numpy as np
-
-
 
 def test_run(size, false_positive_rate, pos_key_percentage):
     K = []
@@ -23,18 +19,12 @@ def test_run(size, false_positive_rate, pos_key_percentage):
 
     BF = BloomFilter(size, false_positive_rate)
 
-    t1 = time.time()
     for i in range(size):
         new_key = "".join(choices(string.ascii_lowercase, k=16))
         if new_key not in K:
             K.append(new_key)
             BF.add(new_key)
-    t2 = time.time()
-    # print("done creating K")
-    # print(t2-t1)
 
-
-    t3 = time.time()
     for i in range(int(size * (1 - pos_key_percentage))):
         new_key = "".join(choices(string.ascii_lowercase, k=16))
         if new_key not in K:
@@ -42,9 +32,6 @@ def test_run(size, false_positive_rate, pos_key_percentage):
     shuffle(K)
     K_prime = K_absent + K[0:int(size * pos_key_percentage)]
     shuffle(K_prime)
-    t4 = time.time()
-    # print("done creating K'")
-    # print(t4-t3)
 
     time_start = time.time()
     for key in K_prime:
