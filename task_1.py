@@ -72,7 +72,7 @@ def test_run(size, false_positive_rate, pos_key_percentage):
     return [actual_false_positive_rate, time_elapsed, BF.num_bits_m]        
 
 
-sizes = [1000, 10000, 50000]
+sizes = [1000, 10000, 100000]
 false_positive_rates = [1/pow(2, 7), 1/pow(2, 8), 1/pow(2, 10)]
 pos_key_percentages = [0.1, 0.25, 0.5]
 
@@ -81,7 +81,7 @@ for size in sizes:
         fpr_string = "1/(2^7)" if (false_positive_rate == false_positive_rates[0]) else ("1/(2^8)" if (false_positive_rate == false_positive_rates[1]) else "1/(2^10)"      )
         for pos_key_percentage in pos_key_percentages:
             results = []
-            for i in range(5):
+            for i in range(1 if size == 100000 else 5):
                 results.append(test_run(size, false_positive_rate, pos_key_percentage))
             average_results = [sum(sub_list) / len(sub_list) for sub_list in zip(*results)]
             print("Results for querying {} keys with {} expected FPR and {} positive keys rate in K': {} actual FPR, {} seconds, {} bits BF"
