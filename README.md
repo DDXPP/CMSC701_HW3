@@ -22,17 +22,18 @@ GitHub repo: https://github.com/DDXPP/CMSC701_HW3
 
 - Install `bloom-filter2`  using the command `pip install bloom-filter2`. 
 - Run this task using the command `python task_1.py`.
-- The results will be printed out in the command line. The results include the actual false positive rate, time used, and the bloom filter size when querying on sets with various key sizes and with various mixtures of “positive” and “negative” keys. The results also include the same three output values when the expected false positive rates are set different. 
+- The results will be printed out in the command line. The results include the observed false positive rate, time used, and the bloom filter size when querying on sets with various key sizes and with various mixtures of “positive” and “negative” keys. The results also include the same three output values when the expected false positive rates are set different. 
 
 ### Task 2 — Empirical evaluation of a minimal perfect hash
 
 - Install `pybbhash`, a Python wrapper for `BBHash`, using the command `pip install bbhash`.
 - Run this task using the command `python task_2.py`.
-- 
+- The results will be printed out in the command line. The results include the observed false positive rate, time used, and the MPHF size.
 
 
 
 ### Task 3 — Augment the MPHF with a “fingerprint array”
 
 - Run this task using the command `python task_3.py`.
+- The results will be printed out in the command line. The results include the observed false positive rate, time used, and the combined size of MPHF and the fingerprint array. 
 
